@@ -10,7 +10,6 @@ class Bread : public Object {
         Player *player;
     public:
         Bread(Storm *pushBack, Player *player, SVG *view) : Object(-100, -100, 20, 20, "sprites/player.png", view){
-            this->setCollisionBoundingBox(0, 0, 20, 20);
             this->spawnTimer = 5;
             this->pushBack = pushBack;
             this->player = player;
@@ -21,7 +20,7 @@ class Bread : public Object {
                 //Nach 5 Sekunden erscheint das Brot wieder
                 if (spawnTimer < 0) {
                     this->spawnTimer = 5;
-                    this->setPos(this->getView()->getWidth(), 20 + rand()%(this->getView()->getHeight() - 40));
+                    this->setPos(this->getView()->getWidth(), 50 + rand()%(this->getView()->getHeight() - 120));
                 } else {
                     this->spawnTimer -= deltaTime;
                 }

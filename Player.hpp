@@ -20,7 +20,7 @@ class Player : public Object {
         void update(string button, double deltaTime) {
             if (moveCooldown <= 0) {
                 if(button == "ArrowLeft") {
-                    this->dx-= 50;
+                    this->dx-= 60;
                     moveCooldown = 0.25;
                 } else if(button == "ArrowRight") {
                     this->dx+= 50;
@@ -30,13 +30,13 @@ class Player : public Object {
                     moveCooldown = 0.1;
                 } else if(button == "ArrowDown") {
                     this->dy+= 25;
-                    moveCooldown = 0.125;
+                    moveCooldown = 0.1;
                 }
             } else {
                 moveCooldown -= deltaTime;
             }
             this->dx = (-40 * deltaTime + this->dx) / 2;
-            this->dy = (20 * deltaTime + this->dy) / 2;
+            this->dy = (0 * deltaTime + this->dy) / 2;
             this->setPos(this->getX() + this->dx, this->getY() + this->dy);
         }
 };

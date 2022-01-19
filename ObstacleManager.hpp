@@ -1,8 +1,5 @@
 #include <stdlib.h>
 #include <algoviz/SVG.hpp>
-#include "Obstacle.hpp"
-#include "Trunk.hpp"
-#include "Storm.hpp"
 
 using namespace std;
 
@@ -33,12 +30,20 @@ class ObstacleManager {
             delete deleteThis;
         }
         /**
-         * Fügt am Listenanfang eine Wolke ein
+         * Fügt am Listenanfang einen Baumstamm ein
          * @param cx x-Koordinate
          * @param cy y-Koordinate
          */
         void addTrunk() {
             this->first = new Trunk(this->view->getWidth(), 20 + rand()%(this->view->getHeight() - 180), this->view, this->first);
+        }
+        /**
+         * Fügt am Listenanfang eine Krähe ein
+         * @param cx x-Koordinate
+         * @param cy y-Koordinate
+         */
+        void addCrow() {
+            this->first = new Crow(20 + rand()%(this->view->getWidth() - 40), 20 + rand()%(this->view->getHeight() - 40), this->view, this->first);
         }
         /**
          * Führt update(deltaTime) für alle Objekte aus
@@ -64,9 +69,6 @@ class ObstacleManager {
             //Frühzeitiges Ende durch Kollision
             while(getCurrentPointingAtObject()&&!returnValue) {
                 returnValue = this->current->isColliding(checkCollision);
-            if (returnValue) {
-                //this->current->setSprite("sprites/player.png");
-            }
                 this->next();
             }
             return returnValue;
