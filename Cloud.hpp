@@ -3,6 +3,7 @@
 
 using namespace std;
 
+//Deprecated
 class Cloud : public Obstacle {
     public:
         Cloud(double x, double y, SVG *view, Obstacle *next) : Obstacle(x, y, 80, 80, "sprites/cloud.png", view, next){
