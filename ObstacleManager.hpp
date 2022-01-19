@@ -2,7 +2,6 @@
 #include <algoviz/SVG.hpp>
 #include "Obstacle.hpp"
 #include "Trunk.hpp"
-#include "Cloud.hpp"
 #include "Storm.hpp"
 
 using namespace std;
@@ -39,15 +38,7 @@ class ObstacleManager {
          * @param cy y-Koordinate
          */
         void addTrunk() {
-            this->first = new Trunk(this->view->getWidth(), rand()%(this->view->getHeight() - 80), this->view, this->first);
-        }
-        /**
-         * Fügt am Listenanfang eine Wolke ein
-         * @param cx x-Koordinate
-         * @param cy y-Koordinate
-         */
-        void addCloud() {
-            this->first = new Cloud(this->view->getWidth(), rand()%(this->view->getHeight() - 80), this->view, this->first);
+            this->first = new Trunk(this->view->getWidth(), 20 + rand()%(this->view->getHeight() - 180), this->view, this->first);
         }
         /**
          * Führt update(deltaTime) für alle Objekte aus

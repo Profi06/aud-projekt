@@ -21,7 +21,7 @@ class Object {
         
         //Wird bei Positionsänderungen aufgerufen
         void updateImagePos() {
-            //Halbe Größe addieren, da Image position im Center und nicht oben links hat
+            //Halbe Größe addieren, da Image Position im Center und nicht oben links hat
             this->objectImage.moveTo(this->x + this->w / 2, this->y + this->h / 2);
         }
     

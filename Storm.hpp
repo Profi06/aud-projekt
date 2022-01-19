@@ -9,6 +9,9 @@ class Storm : public Obstacle {
             this->setCollisionBoundingBox(0, 0, 199, 400);
         }
         void update(double deltaTime) {
-            this->setPos(this->getX() + 1 * deltaTime, this->getY());
+            this->setPos(this->getX() + 7 * deltaTime, this->getY());
+        }
+        void pushBack(double dx) {
+            this->setPos(fmax(-199,this->getX() - dx), this->getY());
         }
 };
