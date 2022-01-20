@@ -18,7 +18,7 @@ class Crow : public Obstacle {
             this->currentRotation = 180;
             
             this->shadowCircle = Circle(x, y, 0 , view);
-            this->crowImage = Image("sprites/cloud.png", x, y, 80, 80, view);
+            this->crowImage = Image("sprites/crow.png", x, y, 80, 80, view);
             
             this->shadowCircle.setStrokeWidth(0);
             this->shadowCircle.setFill(0, 0, 0, 0.4);
