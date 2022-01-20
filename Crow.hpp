@@ -35,7 +35,7 @@ class Crow : public Obstacle {
             this->shadowCircle.setRadius(-30 * sin(this->currentRotation * PI / 180.0));
             
             //Krähe bewegt sich ellipsenförmig
-            this->crowImage.moveTo(this->getX() + this->getY() / 3 * cos(this->currentRotation * PI / 180.0), -(this->getY() + 40) * sin(this->currentRotation * PI / 180.0) - 40);
+            this->crowImage.moveTo(this->getX() + this->getY() / 3 * cos(this->currentRotation * PI / 180.0), -this->getY() * sin(this->currentRotation * PI / 180.0) - 40);
             
             //Überprüfen ob Hitbox aktiv sein soll
             if (this->activeHitbox && this->currentRotation >= 275) {
@@ -49,7 +49,7 @@ class Crow : public Obstacle {
             
             if (this->currentRotation > 360) {
                 //ObstacleManager löscht Objekt
-                this->setPos(-100, 0);
+                this->setPos(-100, 100);
             }
         }
 };

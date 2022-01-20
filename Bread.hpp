@@ -6,10 +6,10 @@ using namespace std;
 class Bread : public Object {
     private:
         double spawnTimer;
-        Storm *pushBack;
+        DangerZone *pushBack;
         Player *player;
     public:
-        Bread(Storm *pushBack, Player *player, SVG *view) : Object(-100, -100, 20, 20, "sprites/player.png", view){
+        Bread(DangerZone *pushBack, Player *player, SVG *view) : Object(-100, -100, 20, 20, "sprites/bread.png", view){
             this->spawnTimer = 5;
             this->pushBack = pushBack;
             this->player = player;

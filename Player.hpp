@@ -11,19 +11,20 @@ class Player : public Object {
         double moveCooldown;
     public:
         Player(double x, double y, SVG *view) : Object(x, y, 40, 40, "sprites/player.png", view){
-            this->setCollisionBoundingBox(2, 21, 34, 11.5);
+            this->setCollisionBoundingBox(3.5, 21, 32.5, 11.5);
             this->dx = 0;
             this->dy = 0;
             this->moveCooldown = 0;
         }
         
         void update(string button, double deltaTime) {
+            //Pfeiltasten / Starke Bewegungen
             if (moveCooldown <= 0) {
                 if(button == "ArrowLeft") {
                     this->dx-= 60;
                     moveCooldown = 0.25;
                 } else if(button == "ArrowRight") {
-                    this->dx+= 50;
+                    this->dx+= 60;
                     moveCooldown = 0.2;
                 } else if(button == "ArrowUp") {
                     this->dy-= 25;
@@ -31,6 +32,19 @@ class Player : public Object {
                 } else if(button == "ArrowDown") {
                     this->dy+= 25;
                     moveCooldown = 0.1;
+                    //WASD / Leichte Bewegungen
+                } else if(button == "a") {
+                    this->dx-= 30;
+                    moveCooldown = 0.5;
+                } else if(button == "d") {
+                    this->dx+= 30;
+                    moveCooldown = 0.4;
+                } else if(button == "w") {
+                    this->dy-= 12.5;
+                    moveCooldown = 0.02;
+                } else if(button == "s") {
+                    this->dy+= 12.5;
+                    moveCooldown = 0.02;
                 }
             } else {
                 moveCooldown -= deltaTime;

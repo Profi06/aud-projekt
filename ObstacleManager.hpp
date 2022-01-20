@@ -35,15 +35,17 @@ class ObstacleManager {
          * @param cy y-Koordinate
          */
         void addTrunk() {
-            this->first = new Trunk(this->view->getWidth(), 20 + rand()%(this->view->getHeight() - 180), this->view, this->first);
+            this->first = new Trunk(this->view->getWidth(), 20 + rand()%(this->view->getHeight() - 200), this->view, this->first);
         }
         /**
          * Fügt am Listenanfang eine Krähe ein
          * @param cx x-Koordinate
          * @param cy y-Koordinate
          */
-        void addCrow() {
-            this->first = new Crow(20 + rand()%(this->view->getWidth() - 40), 20 + rand()%(this->view->getHeight() - 40), this->view, this->first);
+        void addCrow(Player *player, DangerZone *leftBorder) {
+            double x = fmin(fmax(leftBorder->getCxMax(), player->getX() - 100 + rand() % 200), this->view->getWidth());
+            double y = fmin(fmax(60, player->getY() - 100 + rand() % 200), this->view->getHeight() - 60);
+            this->first = new Crow(x, y, this->view, this->first);
         }
         /**
          * Führt update(deltaTime) für alle Objekte aus
