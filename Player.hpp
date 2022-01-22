@@ -20,37 +20,25 @@ class Player : public Object {
         void update(string button, double deltaTime) {
             //Pfeiltasten / Starke Bewegungen
             if (moveCooldown <= 0) {
-                if(button == "ArrowLeft") {
+                if(button == "ArrowLeft" || button == "a") {
                     this->dx-= 60;
                     moveCooldown = 0.25;
-                } else if(button == "ArrowRight") {
+                } else if(button == "ArrowRight" || button == "d") {
                     this->dx+= 60;
                     moveCooldown = 0.2;
-                } else if(button == "ArrowUp") {
+                } else if(button == "ArrowUp" || button == "w") {
                     this->dy-= 25;
                     moveCooldown = 0.1;
-                } else if(button == "ArrowDown") {
+                } else if(button == "ArrowDown" || button == "s") {
                     this->dy+= 25;
                     moveCooldown = 0.1;
-                    //WASD / Leichte Bewegungen
-                } else if(button == "a") {
-                    this->dx-= 30;
-                    moveCooldown = 0.5;
-                } else if(button == "d") {
-                    this->dx+= 30;
-                    moveCooldown = 0.4;
-                } else if(button == "w") {
-                    this->dy-= 12.5;
-                    moveCooldown = 0.02;
-                } else if(button == "s") {
-                    this->dy+= 12.5;
-                    moveCooldown = 0.02;
                 }
             } else {
                 moveCooldown -= deltaTime;
             }
+            //Spieler wird stetig nach links gezogen
             this->dx = (-40 * deltaTime + this->dx) / 2;
-            this->dy = (0 * deltaTime + this->dy) / 2;
+            this->dy = this->dy / 2;
             this->setPos(this->getX() + this->dx, this->getY() + this->dy);
         }
 };
